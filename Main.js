@@ -67,13 +67,9 @@ var display = {
     state.playbackDone();
   },
   change: function (ele) {
-    ele.style.background = ele.color;
-    ele.style.opacity = '1.0';
-    setTimeout(function () { display.baseColor(ele) }, 500);
-  },
-  baseColor: function (ele) {
-    ele.style.background = ele.color;
-    ele.style.opacity = ".3";
+    ele.classList.remove("animDisplay");
+    void ele.offsetWidth; //This line somehow allows javascript to reflow the css animation and restart it
+    ele.classList.add("animDisplay");
   },
   hdgDisplay: function () {
     hdgS.innerHTML = state.currentState;
@@ -129,14 +125,6 @@ const btn3 = document.getElementById('3');
 const btn4 = document.getElementById('4');
 const hdgS = document.getElementById('status');
 const hdgScore = document.getElementById('score');
-btn1.color = 'red';
-btn2.color = 'green';
-btn3.color = 'purple';
-btn4.color = 'pink';
-display.baseColor(btn1);
-display.baseColor(btn2);
-display.baseColor(btn3);
-display.baseColor(btn4);
 btn1.addEventListener('mousedown', function () { addClick(btn1) });
 btn2.addEventListener('mousedown', function () { addClick(btn2) });
 btn3.addEventListener('mousedown', function () { addClick(btn3) });
