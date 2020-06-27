@@ -37,7 +37,7 @@ function addClick (ele) {
   if (state.currentState == States.PLAYING) {
     display.change(ele);
     challenge.played.push(ele.id);
-    challenge.checkLength();
+    challenge.checkOrder();
   }
 }
 
@@ -104,16 +104,11 @@ var challenge = {
         flag = false;
       }
     }
-    if (flag) {
+    if (flag & this.played.length == this.toPlay.length) {
       this.played = [];
       state.rightAnswer();
-    } else {
+    } else if (flag == false){
       state.wrongAnswer();
-    }
-  },
-  checkLength: function () {
-    if (this.played.length == this.toPlay.length) {
-      this.checkOrder();
     }
   }
 }

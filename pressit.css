@@ -1,0 +1,36 @@
+
+[id="1"] {
+  background-color: red;
+  }
+
+[id="2"] {
+  background-color: green;
+}
+
+[id="3"] {
+  background-color: purple;
+}
+
+[id="4"] {
+  background-color: pink;
+}
+
+.btn {
+  opacity: .3;
+}
+.animDisplay {
+  animation: brighten 1s 1;
+}
+
+@keyframes brighten {
+  0% {
+    opacity: .3;
+  }
+  50% {
+    opacity: 1.0;
+  }
+  100% {
+    opacity: .3;
+  }
+
+}
